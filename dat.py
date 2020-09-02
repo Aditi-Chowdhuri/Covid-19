@@ -24,7 +24,7 @@ class dater:
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
             self.totdat[self.cd]=self.tots[i]
-        return str({"confirmed":self.totdat}).replace("\'","\"").replace("\\","-")
+        return str({"confirmed":self.totdat}).replace("\'","\"").replace("/","-")
     
     def get_total_deaths(self):
         self.tots=np.uint64(self.deaths_country.iloc[-1,1:].values)
@@ -32,7 +32,7 @@ class dater:
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
             self.totdat[self.cd]=self.tots[i]
-        return str({"deaths":self.totdat}).replace("\'","\"").replace("\\","-")
+        return str({"deaths":self.totdat}).replace("\'","\"").replace("/","-")
 
     def get_total_recov(self):
         self.tots=np.uint64(self.recovered_country.iloc[-1,1:].values)
@@ -40,4 +40,4 @@ class dater:
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
             self.totdat[self.cd]=self.tots[i]
-        return str({"recovered":self.totdat}).replace("\'","\"").replace("\\","-")
+        return str({"recovered":self.totdat}).replace("\'","\"").replace("/","-")
