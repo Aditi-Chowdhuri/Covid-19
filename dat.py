@@ -19,7 +19,7 @@ class dater:
         self.dates=self.confirmed_country.columns.values[1:]
     
     def get_total_confirm(self):
-        self.tots=self.confirmed_country.iloc[-1,1:].values
+        self.tots=np.uint32(self.confirmed_country.iloc[-1,1:].values)
         self.totdat=dict()
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
@@ -27,7 +27,7 @@ class dater:
         return str({"confirmed":self.totdat}).replace("\'","\"").replace("/","-")
     
     def get_total_deaths(self):
-        self.tots=self.deaths_country.iloc[-1,1:].values
+        self.tots=np.uint32(self.deaths_country.iloc[-1,1:].values)
         self.totdat=dict()
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
@@ -35,7 +35,7 @@ class dater:
         return str({"deaths":self.totdat}).replace("\'","\"").replace("/","-")
 
     def get_total_recov(self):
-        self.tots=self.recovered_country.iloc[-1,1:].values
+        self.tots=np.uint32(self.recovered_country.iloc[-1,1:].values)
         self.totdat=dict()
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
