@@ -9,7 +9,7 @@ CORS(app)
 
 @app.route("/")
 def defaul():
-    return "<!DOCTYPE html><html><body><h1>API is live</h1></body></html>"
+    return render_template("index.html")
 
 @app.route("/confirm", methods=['GET'])
 def confirm():
