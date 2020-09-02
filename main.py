@@ -11,6 +11,18 @@ CORS(app)
 def defaul():
     return render_template("index.html")
 
+@app.route("/confirmed_world", methods=['GET'])
+def confirmed_world():
+    return render_template("confirmed.html")
+
+@app.route("/deaths_world", methods=['GET'])
+def deaths_world():
+    return render_template("deaths.html")
+
+@app.route("/recovered_world", methods=['GET'])
+def recovered_world():
+    return render_template("recovered.html")
+
 @app.route("/confirm", methods=['GET'])
 def confirm():
     return d.get_total_confirm()
