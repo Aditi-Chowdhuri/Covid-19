@@ -1,0 +1,85 @@
+  
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css');
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+ *, *::after, *::before {
+  scroll-behavior: smooth;
+  box-sizing:content-box;
+}
+.qwerty,::selection{
+    text-decoration: none;
+    -moz-user-select: none; 
+    color: none;
+    background: none;
+}
+
+body,html {
+    font-family: 'Quicksand', sans-serif;
+    line-height: 1;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(228, 215, 193);
+    -webkit-font-smoothing: antialiased;
+    transition: .33s ease all;
+    padding: 0%;
+}
+
+main {
+    position: relative;
+    z-index: 1;
+    height: 70vh;
+    overflow: hidden;
+    box-shadow: 0 0 50px #000;
+    transition: .9s;
+}
+.intro {
+    height: 70vh;
+    width: 100%;
+    display: table;
+    background: url('https://scx2.b-cdn.net/gfx/news/hires/2020/1-virus.jpg') no-repeat center center ; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;  background-size: cover;
+    background-repeat : no-repeat;
+    transition: .33s ease all;
+    border-radius:2px;
+}
+
+.chart {
+    padding:auto;
+    margin:50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}
+
+.line-chart {
+    background-color: #FFC988;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.button {
+    background-color: #1c87c9;
+    border: none;
+    color: white;
+    padding: 20px 34px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px 20px;
+    cursor: pointer;
+}
+
+.container{
+    padding:auto;
+    margin:auto;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    text-align: center;
+}

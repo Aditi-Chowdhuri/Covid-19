@@ -1,5 +1,5 @@
 //API to fetch historical data of Bitcoin Price Index for four months
-const api = 'http://127.0.0.1:5000/confirm';
+const api = 'https://covid19dv.herokuapp.com/recovered';
 
 /**
  * Loading data from API when DOM Content has been loaded'.
@@ -22,10 +22,10 @@ fetch(api) // fetch data from api and convert in the form suitable to create lin
 //this function creates array of objects that contains date and price pf bitcoin on that particular date
 function parseData(data) {
     var arr = [];
-    for (var i in data.confirmed) {
+    for (var i in data.recovered) {
         arr.push({
             date: new Date(i), //date
-            value: +data.confirmed[i] //convert string to number
+            value: +data.recovered[i] //convert string to number
         });
     }
     return arr;
@@ -38,7 +38,7 @@ function parseData(data) {
 //getting dataset in the parameter
 function drawChart(data) {
 var svgWidth = 800, svgHeight = 500;
-var margin = { top: 20, right: 20, bottom: 30, left: 50 };
+var margin = { top: 20, right: 30, bottom: 30, left: 70 };
 var width = svgWidth - margin.left - margin.right; // width of the chart
 var height = svgHeight - margin.top - margin.bottom; // height of the chart
 
@@ -82,7 +82,7 @@ g.append("g")
     .attr("y", 6)
     .attr("dy", "0.71em")
     .attr("text-anchor", "end")
-    .text("Price ($)");
+    .text("Number of Cases");
 
 g.append("path")//line we see in the line chart
     .datum(data)// call method .datum() and pass our dataset
@@ -93,3 +93,4 @@ g.append("path")//line we see in the line chart
     .attr("stroke-width", 1.5)
     .attr("d", line);// create a line function for the d attribute
 }
+
