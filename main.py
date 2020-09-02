@@ -1,9 +1,11 @@
 from flask import Flask, render_template, redirect
+from flask_cors import CORS
 from dat import dater
 
 d=dater()
 
 app=Flask(__name__)
+CORS(app)
 
 @app.route("/")
 def defaul():
