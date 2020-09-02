@@ -2,4 +2,4 @@ flask
 pandas
 numpy
 gunicorn
-heroku-flask
+flask-heroku
