@@ -23,6 +23,10 @@ def deaths_world():
 def recovered_world():
     return render_template("recovered.html")
 
+@app.route("/daily_confirmed_world", methods=['GET'])
+def daily_confirmed_world():
+    return render_template("daily_confirmed.html")
+
 @app.route("/confirm", methods=['GET'])
 def confirm():
     return d.get_total_confirm()
@@ -34,6 +38,10 @@ def deaths():
 @app.route("/recovered", methods=['GET'])
 def recover():
     return d.get_total_recov()
+
+@app.route("/daily_confirmed", methods=['GET'])
+def daily_confirmed():
+    return d.get_daily_confirmed_world()
 
 if __name__=="__main__":
     app.run()

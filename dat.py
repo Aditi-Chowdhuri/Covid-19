@@ -17,6 +17,10 @@ class dater:
 
         self.countries=self.confirmed_country.iloc[:, 0].values
         self.dates=self.confirmed_country.columns.values[1:]
+
+        self.daily_confirmed_country=self.confirmed_country
+        for i in range(len(self.dates)-1, 0, -1):
+            self.daily_confirmed_country[self.dates[i]]=self.daily_confirmed_country[self.dates[i]]-self.daily_confirmed_country[self.dates[i-1]]
     
     def get_total_confirm(self):
         self.tots=np.uint32(self.confirmed_country.iloc[-1,1:].values)
@@ -41,3 +45,11 @@ class dater:
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
             self.totdat[self.cd]=self.tots[i]
         return str({"recovered":self.totdat}).replace("\'","\"").replace("/","-")
+
+    def get_daily_confirmed_world(self):
+        self.tots=np.uint32(self.daily_confirmed_country.iloc[-1,1:].values)
+        self.totdat=dict()
+        for i in range(self.dates.shape[0]):
+            self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
+            self.totdat[self.cd]=self.tots[i]
+        return str({"daily_confirm":self.totdat}).replace("\'","\"").replace("/","-")
