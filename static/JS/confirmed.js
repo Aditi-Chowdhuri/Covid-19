@@ -1,5 +1,5 @@
 //API to fetch historical data of Bitcoin Price Index for four months
-const api = 'https://covid19dv.herokuapp.com/confirm';
+const api = '/confirm';
 
 /**
  * Loading data from API when DOM Content has been loaded'.
