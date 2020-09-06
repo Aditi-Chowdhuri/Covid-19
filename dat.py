@@ -18,7 +18,7 @@ class dater:
         self.countries=self.confirmed_country.iloc[:, 0].values
         self.dates=self.confirmed_country.columns.values[1:]
 
-        self.daily_confirmed_country=self.confirmed_country
+        self.daily_confirmed_country=self.confirmed_country.copy()
         for i in range(len(self.dates)-1, 0, -1):
             self.daily_confirmed_country[self.dates[i]]=self.daily_confirmed_country[self.dates[i]]-self.daily_confirmed_country[self.dates[i-1]]
     
