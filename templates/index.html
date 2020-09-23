@@ -1,27 +1,29 @@
-<!doctype html>
-
+<!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="utf-8">
-        <title>COVID 19_DV</title>
+        <title>COVID 19</title>
         <link rel="icon" href="https://image.flaticon.com/icons/svg/2913/2913584.svg" type="image/x-icon">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" href="../static/CSS/index.css">
+        <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
-    <body body id="home" class="open-left">
-        <main>
-            <section class="intro" id="Top">
-            </section>
-        </main>
-        <div style="margin: 40px;text-align: center;">
-            <h1>COVID 19 - DV Project</h1>
+    <body>
+        <div>
+            <main>
+                <section class="intro" id="Top">
+                </section>
+            </main>
         </div>
-        <div class="container">
-        <a href="/confirmed_world" class="button">Confirmed</a>
-        <a href="/deaths_world" class="button">Deaths</a>
-        <a href="/recovered_world" class="button">Recovered</a>
-        <a href="/daily_confirmed_world" class="button">Daily Cases</a>
+        <div class="grid-container">
+            <div id='myDiv1' style="width: 730px; height: 500px;"></div>
+            <div id='myDiv2' style="width: 730px; height: 500px;"></div>
+            <div id='myDiv3' style="width: 730px; height: 500px;"></div>
+            <div id='myDiv4' style="width: 730px; height: 500px;"></div>
         </div>
+        <script src="../static/JS/index.js"></script>
     </body>
 </html>
