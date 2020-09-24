@@ -18,7 +18,19 @@
                 </section>
             </main>
         </div>
-        <div style="height: 2vh;"></div>
+        <br />
+        <div style="height: 2vh; padding: 10px;">
+            <label for="country">Choose Country:</label>
+                <select name="country" id="country" onChange="getCountry()">
+                  <option value="world">World</option>
+                  <option value="saab">Saab</option>
+                  <option value="opel">Opel</option>
+                  <option value="audi">Audi</option>
+                </select>
+            <p id="demo"></p>
+        </div>
+        <br />
+        <br />
         <div class="grid-container">
             <div id='myDiv1' style="width: 740px; height: 500px;"></div>
             <div id='myDiv2' style="width: 740px; height: 500px;"></div>

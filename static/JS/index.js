@@ -1,4 +1,8 @@
-$.get("https://covid19dv.herokuapp.com/confirm", function getter(data, status){
+function getCountry(){
+    var country=document.getElementById("country").value;
+    document.getElementById("demo").innerHTML=country;
+
+$.get("https://covid19dv.herokuapp.com/confirm",function getter(data, status){
     var obj = JSON.parse(data)
     var x1=Object.keys(obj.confirmed)
     var y1=Object.values(obj.confirmed)
@@ -86,3 +90,4 @@ $.get("https://covid19dv.herokuapp.com/recovered", function getter(data, status)
     };
     Plotly.newPlot('myDiv4', data, layout, config);
 });
+}
