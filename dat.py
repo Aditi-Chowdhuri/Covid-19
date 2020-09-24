@@ -22,32 +22,48 @@ class dater:
         for i in range(len(self.dates)-1, 0, -1):
             self.daily_confirmed_country[self.dates[i]]=self.daily_confirmed_country[self.dates[i]]-self.daily_confirmed_country[self.dates[i-1]]
     
-    def get_total_confirm(self):
-        self.tots=np.uint32(self.confirmed_country.iloc[-1,1:].values)
+    def get_total_confirm(self, cntry):
+        if cntry=="World":
+            temp=-1
+        else:
+            temp=np.where(self.countries == cntry)[0][0]
+        self.tots=np.uint32(self.confirmed_country.iloc[temp,1:].values)
         self.totdat=dict()
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
             self.totdat[self.cd]=self.tots[i]
         return str({"confirmed":self.totdat}).replace("\'","\"").replace("/","-")
     
-    def get_total_deaths(self):
-        self.tots=np.uint32(self.deaths_country.iloc[-1,1:].values)
+    def get_total_deaths(self, cntry):
+        if cntry=="World":
+            temp=-1
+        else:
+            temp=np.where(self.countries == cntry)[0][0]
+        self.tots=np.uint32(self.deaths_country.iloc[temp,1:].values)
         self.totdat=dict()
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
             self.totdat[self.cd]=self.tots[i]
         return str({"deaths":self.totdat}).replace("\'","\"").replace("/","-")
 
-    def get_total_recov(self):
-        self.tots=np.uint32(self.recovered_country.iloc[-1,1:].values)
+    def get_total_recov(self, cntry):
+        if cntry=="World":
+            temp=-1
+        else:
+            temp=np.where(self.countries == cntry)[0][0]
+        self.tots=np.uint32(self.recovered_country.iloc[temp,1:].values)
         self.totdat=dict()
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]
             self.totdat[self.cd]=self.tots[i]
         return str({"recovered":self.totdat}).replace("\'","\"").replace("/","-")
 
-    def get_daily_confirmed_world(self):
-        self.tots=np.uint32(self.daily_confirmed_country.iloc[-1,1:].values)
+    def get_daily_confirmed_world(self, cntry):
+        if cntry=="World":
+            temp=-1
+        else:
+            temp=np.where(self.countries == cntry)[0][0]
+        self.tots=np.uint32(self.daily_confirmed_country.iloc[temp,1:].values)
         self.totdat=dict()
         for i in range(self.dates.shape[0]):
             self.cd="20"+self.dates[i][-2:]+"/"+self.dates[i][:-3]

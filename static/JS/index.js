@@ -1,8 +1,8 @@
 function getCountry(){
-    var country=document.getElementById("country").value;
-    document.getElementById("demo").innerHTML=country;
+    var country1=document.getElementById("country").value;
+    document.getElementById("demo").innerHTML=country1;
 
-$.get("https://covid19dv.herokuapp.com/confirm",function getter(data, status){
+$.post("/confirm", {country:country1}, function getter(data, status){
     var obj = JSON.parse(data)
     var x1=Object.keys(obj.confirmed)
     var y1=Object.values(obj.confirmed)
@@ -24,7 +24,7 @@ $.get("https://covid19dv.herokuapp.com/confirm",function getter(data, status){
     };
     Plotly.newPlot('myDiv1', data, layout, config);
 });
-$.get("https://covid19dv.herokuapp.com/daily_confirmed", function getter(data, status){
+$.post("/daily_confirmed", {country:country1}, function getter(data, status){
     var obj = JSON.parse(data)
     var x2=Object.keys(obj.daily_confirm)
     var y2=Object.values(obj.daily_confirm)
@@ -46,7 +46,7 @@ $.get("https://covid19dv.herokuapp.com/daily_confirmed", function getter(data, s
     };
     Plotly.newPlot('myDiv2', data, layout, config);
 });
-$.get("https://covid19dv.herokuapp.com/deaths", function getter(data, status){
+$.post("/deaths", {country:country1}, function getter(data, status){
     var obj = JSON.parse(data)
     var x3=Object.keys(obj.deaths)
     var y3=Object.values(obj.deaths)
@@ -68,7 +68,7 @@ $.get("https://covid19dv.herokuapp.com/deaths", function getter(data, status){
     };
     Plotly.newPlot('myDiv3', data, layout, config);
 });
-$.get("https://covid19dv.herokuapp.com/recovered", function getter(data, status){
+$.post("/recovered", {country:country1}, function getter(data, status){
     var obj = JSON.parse(data)
     var x4=Object.keys(obj.recovered)
     var y4=Object.values(obj.recovered)

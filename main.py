@@ -1,4 +1,4 @@
-from flask import Flask, render_template, redirect
+from flask import Flask, render_template, redirect, request
 from flask_cors import CORS
 from dat import dater
 
@@ -7,41 +7,37 @@ d=dater()
 app=Flask(__name__)
 CORS(app)
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def defaul():
-    return render_template("index.html")
+    return render_template("index.html", country=d.countries)
 
-@app.route("/confirmed_world", methods=['GET'])
-def confirmed_world():
-    return render_template("confirmed.html")
-
-@app.route("/deaths_world", methods=['GET'])
-def deaths_world():
-    return render_template("deaths.html")
-
-@app.route("/recovered_world", methods=['GET'])
-def recovered_world():
-    return render_template("recovered.html")
-
-@app.route("/daily_confirmed_world", methods=['GET'])
-def daily_confirmed_world():
-    return render_template("daily_confirmed.html")
-
-@app.route("/confirm", methods=['GET'])
+@app.route("/confirm", methods=['GET', 'POST'])
 def confirm():
-    return d.get_total_confirm()
+    if request.method=="POST":
+        c=request.form["country"]
+        return d.get_total_confirm(c)
+    return "NAN"
 
-@app.route("/deaths", methods=['GET'])
+@app.route("/deaths", methods=['GET', 'POST'])
 def deaths():
-    return d.get_total_deaths()
+    if request.method=="POST":
+        c=request.form["country"]
+        return d.get_total_deaths(c)
+    return "NAN"
 
-@app.route("/recovered", methods=['GET'])
+@app.route("/recovered", methods=['GET', 'POST'])
 def recover():
-    return d.get_total_recov()
+    if request.method=="POST":
+        c=request.form["country"]
+        return d.get_total_recov(c)
+    return "NAN"
 
-@app.route("/daily_confirmed", methods=['GET'])
+@app.route("/daily_confirmed", methods=['GET', 'POST'])
 def daily_confirmed():
-    return d.get_daily_confirmed_world()
+    if request.method=="POST":
+        c=request.form["country"]
+        return d.get_daily_confirmed_world(c)
+    return "NAN"
 
 if __name__=="__main__":
-    app.run()
+    app.run(debug=True)

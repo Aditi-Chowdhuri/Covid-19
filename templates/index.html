@@ -10,6 +10,7 @@
         <link rel="stylesheet" type="text/css" href="../static/CSS/index.css">
         <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../static/JS/index.js"></script>
     </head>
     <body>
         <div>
@@ -22,12 +23,13 @@
         <div style="height: 2vh; padding: 10px;">
             <label for="country">Choose Country:</label>
                 <select name="country" id="country" onChange="getCountry()">
-                  <option value="world">World</option>
-                  <option value="saab">Saab</option>
-                  <option value="opel">Opel</option>
-                  <option value="audi">Audi</option>
+                  <option value="World">World</option>
+                  {% for i in range(country.shape[0]-1)%}
+                  <option value="{{country[i]}}">{{country[i]}}</option>
+                  {% endfor %}
                 </select>
             <p id="demo"></p>
+            <script>getCountry();</script>
         </div>
         <br />
         <br />
@@ -37,6 +39,5 @@
             <div id='myDiv3' style="width: 740px; height: 500px;"></div>
             <div id='myDiv4' style="width: 740px; height: 500px;"></div>
         </div>
-        <script src="../static/JS/index.js"></script>
     </body>
 </html>
