@@ -1,6 +1,5 @@
 function getCountry(){
     var country1=document.getElementById("country").value;
-    document.getElementById("demo").innerHTML=country1;
 
 $.post("/confirm", {country:country1}, function getter(data, status){
     var obj = JSON.parse(data)
@@ -10,9 +9,11 @@ $.post("/confirm", {country:country1}, function getter(data, status){
         x: x1,
         y: y1,
         type: 'scatter',
+        name: 'Confirmed Cases',
         line: {
             color: "#00AACC",
-            width: 3
+            width: 3,
+            shape: 'spline'
         }
     };
     var data = [trace1];
@@ -32,11 +33,31 @@ $.post("/daily_confirmed", {country:country1}, function getter(data, status){
         x: x2,
         y: y2,
         type: 'scatter',
+        name: 'Daily Confirmed Cases',
         line: {
             color: "#162275",
-            width: 3
+            width: 3,
+            shape: 'spline'
         }
     };
+    if(country1=="World"){
+        var x21=Object.keys(obj.pred)
+        var y21=Object.values(obj.pred)
+        var trace21 = {
+            x: x21,
+            y: y21,
+            type: 'scatter',
+            mode: 'lines',
+            name: 'Predicted Trend',
+            line: {
+                color: "#8a90ba",
+                width: 3,
+                shape: 'spline'
+            }
+        };
+        var data = [trace2, trace21]
+    }
+    else
     var data = [trace2];
     let layout = {
         title: "Daily Confirmed",
@@ -54,9 +75,11 @@ $.post("/deaths", {country:country1}, function getter(data, status){
         x: x3,
         y: y3,
         type: 'scatter',
+        name: 'Deaths',
         line: {
             color: "#AB0000",
-            width: 3
+            width: 3,
+            shape: 'spline'
         }
     };
     var data = [trace3];
@@ -76,9 +99,11 @@ $.post("/recovered", {country:country1}, function getter(data, status){
         x: x4,
         y: y4,
         type: 'scatter',
+        name: 'Recovered',
         line: {
             color: "#006400",
-            width: 3
+            width: 3,
+            shape: 'spline'
         }
     };
     var data = [trace4];
