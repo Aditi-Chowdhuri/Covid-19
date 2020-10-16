@@ -38,9 +38,9 @@ main {
 .grid-container {
     display: grid;
     grid-template-columns: auto auto;
-    grid-gap: 10px;
+    grid-gap: 1vw;
     background-color: #a8d0f5;
-    padding: 10px;
+    padding: 1vw;
     height: 1025px;
 }
 .grid-container > div {
@@ -48,7 +48,7 @@ main {
 }
 
 .container {
-    width: 740px; 
+    width: 48vw; 
     height: 500px;
 }
  
