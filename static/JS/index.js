@@ -50,7 +50,7 @@ $.post("/daily_confirmed", {country:country1}, function getter(data, status){
             mode: 'lines',
             name: 'Predicted Trend',
             line: {
-                color: "#8a90ba",
+                color: "#aa501a",
                 width: 3,
                 shape: 'spline'
             }

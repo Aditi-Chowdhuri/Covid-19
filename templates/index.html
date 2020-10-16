@@ -20,23 +20,27 @@
             </main>
         </div>
         <br />
+
         <div style="height: 2vh; padding: 10px;">
-            <label for="country">Choose Country:</label>
+            <div style="margin-bottom: 1em;">
+                <label for="country" style="font-size: 28px; font-weight: 900;">Choose Country:</label>
+            </div>
+            <div class="select"> 
                 <select name="country" id="country" onChange="getCountry()">
-                  <option value="World">World</option>
-                  {% for i in range(country.shape[0]-1)%}
-                  <option value="{{country[i]}}">{{country[i]}}</option>
-                  {% endfor %}
+                <option value="World">World</option>
+                {% for i in range(country.shape[0]-1)%}
+                <option value="{{country[i]}}">{{country[i]}}</option>
+                {% endfor %}
                 </select>
+            </div>
             <script>getCountry();</script>
         </div>
-        <br />
-        <br />
+        <div style="margin-bottom: 5em;"></div>
         <div class="grid-container">
-            <div id='myDiv1' style="width: 740px; height: 500px;"></div>
-            <div id='myDiv2' style="width: 740px; height: 500px;"></div>
-            <div id='myDiv3' style="width: 740px; height: 500px;"></div>
-            <div id='myDiv4' style="width: 740px; height: 500px;"></div>
+            <div id='myDiv1' class="container"></div>
+            <div id='myDiv2' class="container"></div>
+            <div id='myDiv3' class="container"></div>
+            <div id='myDiv4' class="container"></div>
         </div>
     </body>
 </html>
