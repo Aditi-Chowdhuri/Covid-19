@@ -22,6 +22,7 @@ $.post("/confirm", {country:country1}, function getter(data, status){
     };
     let config = { 
         responsive: true,
+        displaylogo: false,
     };
     Plotly.newPlot('myDiv1', data, layout, config);
 });
@@ -69,6 +70,7 @@ $.post("/daily_confirmed", {country:country1}, function getter(data, status){
     };
     let config = { 
         responsive: true,
+        displaylogo: false,
     };
     Plotly.newPlot('myDiv2', data, layout, config);
 });
@@ -93,6 +95,7 @@ $.post("/deaths", {country:country1}, function getter(data, status){
     };
     let config = { 
         responsive: true,
+        displaylogo: false,
     };
     Plotly.newPlot('myDiv3', data, layout, config);
 });
@@ -117,6 +120,7 @@ $.post("/recovered", {country:country1}, function getter(data, status){
     };
     let config = { 
         responsive: true,
+        displaylogo: false,
     };
     Plotly.newPlot('myDiv4', data, layout, config);
 });
