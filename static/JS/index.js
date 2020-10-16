@@ -61,6 +61,11 @@ $.post("/daily_confirmed", {country:country1}, function getter(data, status){
     var data = [trace2];
     let layout = {
         title: "Daily Confirmed",
+        showlegend: true,
+        legend: {
+            x: 0,
+            y: 1
+        }
     };
     let config = { 
         responsive: true,
