@@ -29,7 +29,7 @@ class dater:
             self.daily_confirmed_country[self.dates[i]]=self.daily_confirmed_country[self.dates[i]]-self.daily_confirmed_country[self.dates[i-1]]
         self.model = tf.keras.models.load_model("model/world_model.h5")
         self.max = 360934
-        self.temp = np.float32(self.daily_confirmed_country.iloc[-1,-10:].values/360934.0)
+        self.temp = np.float32(self.daily_confirmed_country.iloc[-1,-10:].values/439890.0)
         self.p = self.model.predict(np.reshape(self.temp, (1, -1, 1)))[0][0]
         for i in range(9):
             self.temp = np.append(self.temp, self.p)[1:]
