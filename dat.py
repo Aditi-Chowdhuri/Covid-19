@@ -5,6 +5,7 @@ import datetime
 
 gpus=tf.config.experimental.get_visible_devices('GPU')
 for gpu in gpus:
+    print(gpu)
     tf.config.experimental.set_memory_growth(gpu, True)
 
 class dater:
