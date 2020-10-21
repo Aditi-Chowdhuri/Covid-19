@@ -1,0 +1,4 @@
+__pycache__/
+.ipynb_checkpoints/
+.vscode/
+model/gru_model.h5

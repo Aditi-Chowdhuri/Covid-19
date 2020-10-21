@@ -5,7 +5,7 @@ import datetime
 
 gpus=tf.config.experimental.get_visible_devices('GPU')
 for gpu in gpus:
-    print(gpu)
+    #print(gpu)
     tf.config.experimental.set_memory_growth(gpu, True)
 
 class dater:
@@ -29,13 +29,13 @@ class dater:
         for i in range(len(self.dates)-1, 0, -1):
             self.daily_confirmed_country[self.dates[i]]=self.daily_confirmed_country[self.dates[i]]-self.daily_confirmed_country[self.dates[i-1]]
         self.model = tf.keras.models.load_model("model/world_model.h5")
-        self.max = 360934
-        self.temp = np.float32(self.daily_confirmed_country.iloc[-1,-10:].values/439890.0)
+        self.max = 439890.0
+        self.temp = np.float32(self.daily_confirmed_country.iloc[-1,-10:].values/self.max)
         self.p = self.model.predict(np.reshape(self.temp, (1, -1, 1)))[0][0]
         for i in range(9):
             self.temp = np.append(self.temp, self.p)[1:]
             self.p = self.model.predict(np.reshape(self.temp, (1, -1, 1)))[0][0]
-        self.temp*=360934
+        self.temp*=self.max
     
     def get_total_confirm(self, cntry):
         if cntry=="World":
@@ -89,7 +89,7 @@ class dater:
 
     def get_world_pred(self):
         self.cd="20"+self.dates[-1][-2:]+"/"+self.dates[-1][:-3]
-        print(self.cd)
+        #print(self.cd)
         self.totdat=dict()
         for i in range(10):
             self.totdat[self.cd]=self.temp[i]
